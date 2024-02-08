@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Log in</title>
+  <link rel="stylesheet" href="../css/login.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+    
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      font-family: "lato", sans-serif;
+    }
+    .loginFrm {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+    }
+    .form {
+        background-color:#787a8b;
+        width: 400px;
+        border-radius: 8px;
+        padding: 20px 40px;
+        box-shadow: 0 10px 25px rgba(40, 123, 195, 0.726);
+    }
+      
+    .title {
+        font-size: 50px;
+        margin-bottom: 50px;
+        color:white;
+
+    }
+
+    .inputContainer {
+        position: relative;
+        height: 45px;
+        width: 90%;
+        margin-bottom: 17px;
+    }
+
+    .input {
+      position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        border: 1px solid rgba(72, 73, 75, 0.726);
+        border-radius: 7px;
+        font-size: 16px;
+        padding: 0 20px;
+        outline: none;
+        background: none;
+        z-index: 1;
+        border: 1px solid white;
+      }
+      
+      /* Hide the placeholder texts (a) */
+      
+      ::placeholder {
+        color: transparent;
+    }
+
+    .label {
+      position: absolute;
+        top: 15px;
+        left: 15px;
+        padding: 0 4px;
+        color: #DADCE0;
+        font-size: 16px;
+        transition: 0.5s;
+        z-index: 0;
+    }
+
+    .submitBtn {
+        display: block;
+        margin-left: auto;
+        padding: 15px 30px;
+        border: none;
+        background-color: rgba(0, 23, 233, 0.664);
+        border-radius: 50px;
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        margin-right: 145px;
+    }
+      
+    .submitBtn:hover {
+        background-color: #50d338;
+        transform: translateY(-2px);
+    }
+
+    .input:focus + .label {
+        top: -7px;
+        left: 3px;
+        z-index: 10;
+        font-size: 14px;
+        font-weight: 600;
+        color: rgba(0, 23, 233, 0.664);
+    }
+
+    .input:focus {
+        border: 2px solid rgba(0, 23, 233, 0.664);
+    }
+
+    .input:not(:placeholder-shown)+ .label {
+        top: -7px;
+        left: 3px;
+        z-index: 10;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    h1{
+        text-align: center;
+    }
+    #err{
+      color: red;
+      position: absolute;
+      padding: 15px;
+    }
+  </style>
+</head>
+<body  onload="checkForErr()">
+
+    
+    <div class="loginFrm">
+        <form action="/" method="post" class="form" >
+          <h1 class="title">Log in</h1>
+    
+          <div class="inputContainer">
+            <input type="text" class="input" placeholder="Username" name="username" required>
+            <label class="label">User Name</label>
+          </div>
+    
+          <div class="inputContainer">
+            <input type="password" class="input" placeholder="password" name="password" required>
+            <label class="label">Password</label>
+          </div>
+    
+          <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+          <div id="err"></div>
+          <button type="submit" class="submitBtn">Log in</button>
+        </form>
+      </div>
+
+</body>
+
+<script>
+      function checkForErr(){
+        var objUrlParams = new URLSearchParams(window.location.search);
+        if(objUrlParams.get('wrong')=="uname"){
+          document.getElementById('err').innerHTML="Username is Incorrect!"
+        }
+        else if(objUrlParams.get('wrong')=="pass"){
+          document.getElementById('err').innerHTML="Password is incorrect!"
+
+        }
+      }
+ </script>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sign up</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "lato", sans-serif;
+    }
+    .signupFrm {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .form {
+        background-color:#787a8b;
+        width: 400px;
+        border-radius: 8px;
+        padding: 20px 40px;
+        box-shadow: 0 10px 25px rgba(40, 123, 195, 0.726);
+    }
+      
+    .title {
+        font-size: 50px;
+        margin-bottom: 50px;
+        color:white;
+    }
+
+    .inputContainer {
+        position: relative;
+        height: 45px;
+        width: 90%;
+        margin-bottom: 17px;
+    }
+
+    .input {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        border: 1px solid rgba(72, 73, 75, 0.726);
+        border-radius: 7px;
+        font-size: 16px;
+        padding: 0 20px;
+        outline: none;
+        background: none;
+        z-index: 1;
+        border: 1px solid white;
+        transition: border-color 0.3s ease-in-out;
+      }
+      
+    
+      
+    ::placeholder {
+        color: transparent;
+    }
+
+    .label {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        padding: 0 4px;
+        color: #DADCE0;
+        font-size: 16px;
+        transition: 0.5s;
+        z-index: 0;
+      }
+
+    .submitBtn {
+        display: block;
+        margin-left: auto;
+        padding: 15px 30px;
+        border: none;
+        background-color: rgba(8, 30, 230, 0.664);
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        margin-right: 145px;
+    }
+      
+    .submitBtn:hover {
+        background-color: #47cc2f;
+        transform: translateY(-2px);
+    }
+
+   
+    
+
+    h1{
+        text-align: center;
+    }
+    #err{
+      color: red;
+      position: absolute;
+      padding: 15px;
+    }
+  </style>
+  <script>
+  </script>
+</head>
+<body onload="checkForErr()">
+    <div class="signupFrm">
+        <form action="/login" method="post" class="form">
+          <h1 class="title">Sign Up</h1>
+    
+          <div class="inputContainer">
+            <input type="text" class="input" name="username" placeholder="Username" required>
+            <label class="label">User Name</label>
+          </div>
+    
+          <div class="inputContainer">
+            <input type="text" class="input" name="firstname" placeholder="First Name">
+            <label class="label">First Name</label>
+          </div>
+
+          <div class="inputContainer">
+            <input type="text" class="input" name="lastname" placeholder="Last Name">
+            <label class="label">Last Name</label>
+          </div>
+    
+          <div class="inputContainer">
+            <input type="password" class="input" name="password" placeholder="password" required minlength="5">
+            <label class="label">Password</label>
+          </div>
+          <div id="err">
+          </div>
+          <input type="submit" class="submitBtn" value="Submit">
+          <p><a href="/login">Go to login</a></p>
+        </form>
+        
+      </div>
+
+</body>
+
+<script>
+      function checkForErr(){
+        var objUrlParams = new URLSearchParams(window.location.search);
+        if(objUrlParams.get('err')=="username"){
+          document.getElementById('err').innerHTML="Username is Invalid!"
+        }
+      }
+ </script>
+
+</html>

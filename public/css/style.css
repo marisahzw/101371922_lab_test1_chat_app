@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+:root {
+	--dark-color-a: #6d759d;
+	--dark-color-b: rgb(221, 206, 206);
+	
+	--success-color: #5cb85c;
+	--error-color: #d9534f;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+	background: var(--light-color);
+	margin: 20px;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.btn {
+	cursor: pointer;
+	padding: 8px 20px;
+	background: var(--light-color);
+	color: var(--dark-color-a);
+	border: 2px solid black;
+	font-size: 22px;
+	margin-bottom: 15px;
+	border-radius: 25px;
+	transition: all 0.3s ease;
+}
+
+.btn:hover {
+	background: var(--dark-color-a);
+	color: var(--light-color);
+}
+
+
+/* Join Page */
+.join-container {
+	max-width: 500px;
+	margin: 80px auto;
+	color: #fff;
+}
+
+.join-header {
+	text-align: center;
+	padding: 30px;
+	background: var(--dark-color-a);
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.join-main {
+	padding: 40px 50px;
+	background: var(--dark-color-b);
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.join-main p {
+	margin-bottom: 25px;
+	font-size: 20px;
+}
+
+.join-main .form-control {
+	margin-bottom: 25px;
+}
+
+.join-main label {
+	display: block;
+	margin-bottom: 10px;
+	font-size: 20px;
+}
+
+.join-main input[type='text'] {
+	font-size: 16px;
+	padding: 8px;
+	height: 45px;
+	width: 100%;
+	border-radius: 25px;
+}
+
+.join-main select {
+	font-size: 16px;
+	padding: 8px;
+	height: 45px;
+	width: 100%;
+	border-radius: 25px;
+}
+
+.join-main .btn {
+	margin-top: 25px;
+	width: 100%;
+	border-radius: 25px;
+}
+
+@media (max-width: 700px) {
+	.chat-main {
+		display: block;
+	}
+
+	.chat-sidebar {
+		display: none;
+	}
+}
